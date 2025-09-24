@@ -37,7 +37,7 @@
 <body>
 
     <header>
-        <h1>Dashboard Perpustakaan Sekolah SMK MUHAMMADIYAH SEYEGAN</h1>
+        <h1>Perpustakaan Sekolah SMK MUHAMMADIYAH SEYEGAN</h1>
         <p>Selamat datang, <strong><?php echo $this->session->userdata('username'); ?></strong>!</p>
     </header>
 
