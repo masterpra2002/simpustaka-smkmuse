@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * @property Peminjaman_model $Peminjaman_model
+ * @property CI_Session $session
  * @property Pengguna_model $Pengguna_model
  * @property CI_Input $input
  */
