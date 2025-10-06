@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * @property Peminjaman_model $Peminjaman_model
+ * @property Penggembalian_model $Pengembalian_model
+ * @property CI_Input $input
+ */
+
 class Pengembalian extends CI_Controller {
 
     public function __construct() {
@@ -10,7 +16,7 @@ class Pengembalian extends CI_Controller {
     }
 
     public function index() {
-        $data['peminjaman'] = $this->Peminjaman_model->getBelumDikembalikan();
+        $data['peminjaman'] = $this->Peminjaman_model->get_aktif();
         $this->load->view('pengembalian_view', $data);
     }
 
@@ -19,7 +25,7 @@ class Pengembalian extends CI_Controller {
         $tanggal_dikembalikan = $this->input->post('tanggal_dikembalikan');
 
         // Ambil data tanggal kembali
-        $peminjaman = $this->Peminjaman_model->getById($id_peminjaman);
+        $peminjaman = $this->Peminjaman_model->get_by_id($id_peminjaman);
         $tanggal_kembali = $peminjaman->tanggal_kembali;
 
         // Hitung denda
@@ -39,7 +45,7 @@ class Pengembalian extends CI_Controller {
         $this->Pengembalian_model->insert($data);
 
         // Update status peminjaman
-        $this->Peminjaman_model->updateStatus($id_peminjaman, 'Dikembalikan');
+        $this->Peminjaman_model->update($id_peminjaman, ['status' => 'Dikembalikan']);
 
         redirect('pengembalian');
     }
