@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * @property Peminjaman_model $Peminjaman_model
+ * @property Pengguna_model $Pengguna_model
+ * @property CI_Input $input
+ */
+
 class Pengguna extends CI_Controller {
 
     public function __construct() {
