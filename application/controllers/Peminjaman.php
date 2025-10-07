@@ -21,7 +21,7 @@ class Peminjaman extends CI_Controller {
 
     public function index() {
         $data['anggota'] = $this->Anggota_model->get_all();
-        $data['buku'] = $this->Buku_model->get_all();
+        $data['buku'] = $this->Buku_model->get_all_buku();
         $data['petugas'] = $this->Petugas_model->get_all();
         $this->load->view('peminjaman_view', $data);
     }
